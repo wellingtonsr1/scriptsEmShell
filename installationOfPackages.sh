@@ -4,6 +4,8 @@
 # Email: marcosmoreirapro2077@gmail.com
 # Data: 2018-12-21
 # Licença: MIT
+#
+# Modificado por: Wellington
 #====================================================================================================
 
 
