@@ -49,6 +49,8 @@ if [ $? ]; then
 			echo ""
 		fi
 	done < $1
+	
+	apt-get install -f
 else
     echo -e "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\e[1;33m Atenção!!! \e[0m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"	
     echo -e "\e[1;31mA atualização falhou.\e[0m"
