@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Criado por: Marcos Moreira
+# https://www.vivaolinux.com.br/script/Instalacao-de-pacotes-em-uma-lista
 # Email: marcosmoreirapro2077@gmail.com
 # Data: 2018-12-21
 # Licença: MIT
@@ -31,11 +32,6 @@ echo -e "\e[1;32mIniciando a atualização dos repositórios... \e[0m"
 echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
 apt-get update -y
 if [ $? ]; then
-    echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
-    echo -e "\e[1;32mAtualização  dos repositórios finalizada. \e[0m"
-    echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
-    echo ""
-	
 	# Instala os pacotes da lista e destaca se a intsalção teve sucesso ou não
 	#=====================================================================================================#
 	while IFS= read -r PACOTE; do #Lê o arquivo linha por linha
@@ -43,12 +39,7 @@ if [ $? ]; then
 		echo -e "\e[1;32mIniciando a instalação do pacote:.......... $PACOTE \e[0m"
 		echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
 		apt-get install $PACOTE -y
-		if [ $? ]; then
-			echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
-			echo -e "\e[1;32mFinalizada a instalação do pacote:.......... $PACOTE \e[0m"
-			echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"		
-			echo ""
-		else
+		if [ $? -ne 0 ]; then
 			echo ""
 			echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
 			echo -e "\e[1;32mFalha na instalação do pacote:.......... $PACOTE \e[0m"
