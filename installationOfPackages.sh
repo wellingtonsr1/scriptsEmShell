@@ -41,7 +41,7 @@ if [ $? ]; then
 		echo -e "\e[1;32mIniciando a instalação do pacote:.......... $PACOTE \e[0m"
 		echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
 		apt-get install $PACOTE -y
-		if [ $? -ne 0 ]; then
+		if [ ! $? ]; then
 			echo ""
 			echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
 			echo -e "\e[1;32mFalha na instalação do pacote:.......... $PACOTE \e[0m"
