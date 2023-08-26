@@ -3,11 +3,11 @@
 
 
 #----------------------------------------Variáveis--------------------------------------------------
-VERSION=1
-AUTHOR=wellington
-TXTFILE=minhasSenhas.txt
-GPGFILE=minhasSenhas.txt.gpg
-ID=Wellington
+VERSION="1"
+AUTHOR="wellington"
+TXTFILE="minhasSenhas.txt"
+GPGFILE="minhasSenhas.txt.gpg"
+ID="Wellington"
 #---------------------------------------------------------------------------------------------------
 
 # Limpar a tela
