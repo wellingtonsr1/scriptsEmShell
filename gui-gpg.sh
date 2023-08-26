@@ -28,7 +28,7 @@ read -p "Login: " LOGIN
 read -p "Senha: " PASSWORD
 
 # Criar um arquivo .zip de backup
-zip -q -r $GPGFILE.BKP.zip $GPGFILE
+zip -q -r "$GPGFILE".BKP.zip "$GPGFILE"
 
 # Verificar se o diretório bkp existe
 if [ ! -d "bkp" ]; then 
@@ -36,18 +36,18 @@ if [ ! -d "bkp" ]; then
 fi
 
 # Verificar se o arquivo .zip existe
-if [ -e $GPGFILE.BKP.zip ]; then
-    mv $GPGFILE.BKP.zip bkp
+if [ -e "$GPGFILE".BKP.zip ]; then
+    mv "$GPGFILE".BKP.zip bkp
 else
     echo "Arquivo de backup não existe."
 fi
 
 # Descriptografar o arquivo .gpg gerando um .txt
-gpg -d $GPGFILE > $TXTFILE 
+gpg -d "$GPGFILE" > "$TXTFILE" 
 
 # Inserir o cabeçalho, login e senha do serviço no arquivo.txt
 echo -e "\n---------------------------------------------------------------------------
-    Login e Senha do $SERVICE                                                  
+    Login e Senha do $SERVICE                                                 
 ---------------------------------------------------------------------------
   
 Login: $LOGIN        
@@ -55,12 +55,12 @@ Senha: $PASSWORD                                                            " >>
 
 
 # Criptografar o arquivo .txt gerando um .gpg
-gpg -r $ID -e $TXTFILE
+gpg -r "$ID" -e "$TXTFILE"
 
 # Apagar o .txt
-rm -f $TXTFILE
+rm -f "$TXTFILE"
 
-#gpg -d $GPGFILE
+#gpg -d "$GPGFILE"
 
 # Exibir rodapé
 echo -e "\n---------------------------------------------------------------------------"
