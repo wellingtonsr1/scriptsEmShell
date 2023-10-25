@@ -36,14 +36,15 @@ else
     esac
 fi
 
+# Exibir o nome da operação com a primeira letra em maiúsculo
+tituloOperacao=$(echo $operacao | awk '{print toupper(substr($0,1,1)) tolower(substr($0,2))}')"
 
 # Exibir o resultado na tela
 echo "--------------------------------------"
-                # Exibir o nome da operação com a primeira letra em maiúsculo
-echo "            $(echo $operacao | awk '{print toupper(substr($0,1,1)) tolower(substr($0,2))}')"
+echo "          $tituloOperacao             "
 echo "--------------------------------------"
 echo "                                      "
-echo "O resultado da $operacao é $resultado "
+echo " O resultado da $operacao é $resultado"
 echo "                                      "
 echo "--------------------------------------"
 
