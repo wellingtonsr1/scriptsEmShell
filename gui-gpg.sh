@@ -1,7 +1,4 @@
 #!/bin/bash
-
-
-
 #----------------------------------------Variáveis--------------------------------------------------
 VERSION="1"
 AUTHOR="wellington"
@@ -28,12 +25,10 @@ read -p "Login: " LOGIN
 read -p "Senha: " PASSWORD
 
 # Criar um arquivo .zip de backup
-zip -q -r "$GPGFILE".BKP.zip "$GPGFILE"
+#zip -q -r "$GPGFILE".BKP.zip "$GPGFILE"
 
 # Verificar se o diretório bkp existe
-if [ ! -d "bkp" ]; then 
-    mkdir bkp
-fi
+[ ! -d "bkp" ] && mkdir bkp
 
 # Verificar se o arquivo .zip existe
 if [ -e "$GPGFILE".BKP.zip ]; then
@@ -46,12 +41,12 @@ fi
 gpg -d "$GPGFILE" > "$TXTFILE" 
 
 # Inserir o cabeçalho, login e senha do serviço no arquivo.txt
-echo -e "\n---------------------------------------------------------------------------
-    Login e Senha do $SERVICE                                                 
----------------------------------------------------------------------------
-  
-Login: $LOGIN        
-Senha: $PASSWORD                                                            " >> $TXTFILE
+(echo "---------------------------------------------------------------------------"
+ echo "Login e Senha do "$SERVICE"                                                "
+ echo "---------------------------------------------------------------------------"
+ echo ""  
+ echo "Login: "$LOGIN""
+ echo "Senha: "$PASSWORD"") >> "$TXTFILE"
 
 
 # Criptografar o arquivo .txt gerando um .gpg
