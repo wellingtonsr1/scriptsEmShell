@@ -41,12 +41,14 @@ fi
 gpg -d "$GPGFILE" > "$TXTFILE" 
 
 # Inserir o cabeçalho, login e senha do serviço no arquivo.txt
-(echo "---------------------------------------------------------------------------"
- echo "Login e Senha do "$SERVICE"                                                "
- echo "---------------------------------------------------------------------------"
- echo ""  
- echo "Login: "$LOGIN""
- echo "Senha: "$PASSWORD"") >> "$TXTFILE"
+{
+    echo "---------------------------------------------------------------------------";
+    echo "Login e Senha do "$SERVICE"                                                ";
+    echo "---------------------------------------------------------------------------";
+    echo "";  
+    echo "Login: "$LOGIN"";
+    echo "Senha: "$PASSWORD""; 
+} >> "$TXTFILE"
 
 
 # Criptografar o arquivo .txt gerando um .gpg
