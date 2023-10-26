@@ -28,10 +28,10 @@ read -p "Senha: " PASSWORD
 #zip -q -r "$GPGFILE".BKP.zip "$GPGFILE"
 
 # Verificar se o diretório bkp existe
-[ ! -d "bkp" ] && mkdir bkp
+[[ ! -d "bkp" ]] && mkdir bkp
 
 # Verificar se o arquivo .zip existe
-if [ -e "$GPGFILE".BKP.zip ]; then
+if [[ -e "$GPGFILE".BKP.zip ]]; then
     mv "$GPGFILE".BKP.zip bkp
 else
     echo "Arquivo de backup não existe."
@@ -48,6 +48,7 @@ gpg -d "$GPGFILE" > "$TXTFILE"
     echo "";  
     echo "Login: "$LOGIN"";
     echo "Senha: "$PASSWORD""; 
+    echo "";  
 } >> "$TXTFILE"
 
 
