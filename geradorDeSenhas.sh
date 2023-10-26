@@ -16,7 +16,7 @@ declare -i passwordSize=0
 declare -i minimumSize=8
 
 
-until [ "${#characters[@]}" -ne 0 ]; do
+until [[ "${#characters[@]}" -ne 0 ]]; do
     clear
     echo "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
     echo "*            Gerador de senhas                    *"
@@ -41,7 +41,7 @@ until [ "${#characters[@]}" -ne 0 ]; do
     echo " "
 done
 
-until [ "$passwordSize" -ge "$minimumSize" ]; do
+until [[ "$passwordSize" -ge "$minimumSize" ]]; do
     read -p "Qual será o tamanho da senha (Mínimo é $minimumSize)? " passwordSize
 done
 echo " "
