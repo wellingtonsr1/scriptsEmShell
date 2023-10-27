@@ -1,6 +1,10 @@
+gparted
+gsmartcontrol
+hplip
+lm-sensors
 psensor
 obs-studio
-transmission
+qbittorrent
 pitivi
 vlc
 steam
@@ -9,3 +13,10 @@ simple-scan
 xsane
 htop
 code
+telegram-desktop
+filezilla
+xxd
+hexedit
+nasm
+gdb
+ascii
