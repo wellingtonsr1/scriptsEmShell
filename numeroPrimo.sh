@@ -17,7 +17,7 @@ do
     primo=true
 
     if [[ $valor -gt 1 ]]; then
-        for ((i=2; i <= $valor/2; i++)); do
+        for ((i=2; i<=$valor/2; i++)); do
             if [[ $valor%$i -eq 0 ]]; then
                 primo=false
                 break
