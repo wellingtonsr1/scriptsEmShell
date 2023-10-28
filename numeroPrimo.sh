@@ -1,27 +1,45 @@
 #!/usr/bin/env bash
 
+ 
 
-#if [[ $# -eq 0 ]]; then
-#    echo '-----------------------------------------'
-#    echo ' Favor, informar a lista de números.'
-#    echo ' Uso:' 
-#    echo "   $0 <1> <2> <3> ... <N>"
-#    echo '               ou             '
-#    echo "   $0 <{1...N}>"
-#    echo '-----------------------------------------'
-#fi 
+while : 
+do
+    clear
+    echo '--------------------------------------'
+    echo '    Verifica se um número é primo.'
+    echo '--------------------------------------'
+    echo -n ' Qual o número? (<q> para sair) : '
+    read  valor
+    echo ' '
 
-echo 'Qual valor? '
-read valor
+    [[ $valor =~ (q|Q) ]] && exit 1
 
-declare -i count=1
-for ((i=1; i <= "$valor"; i++)) do
-    #echo 'i' $i
-    if [[ $i -gt 1 ]]; then
-        for ((j=2; j <= 10; j++)); do
-            [[ $i%$j -eq 0 ]] && ((count++))
-     #       echo 'J' $j
-            [[ $count -eq 2 ]] && echo "O número $i é primo. Count $count"
+    primo=true
+
+    if [[ $valor -gt 1 ]]; then
+        for ((i=2; i <= ($valor/2); i++)); do
+            if [[ $valor%$i -eq 0 ]]; then
+                primo=false
+                break
+            fi
         done
+    else
+        primo=false
     fi
+
+    if [[ $primo == true ]]; then
+        echo " - O número $valor é primo."
+    else
+        echo " - O número $valor não é primo."
+    fi
+    echo ' '
+    echo '--------------------------------------'
+    
+    echo 'Pressione <ENTER> para continuar'
+    read
 done
+
+
+
+
+
