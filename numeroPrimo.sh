@@ -12,29 +12,34 @@ do
     read  valor
     echo ' '
 
-    [[ $valor =~ (q|Q) ]] && exit 0
+    if [[ ! $valor =~ [0-9qQ] ]]; then
+        echo ' - Valore inválido.' 
+    else 
+        [[ $valor =~ (q|Q) ]] && { echo ' Saindo...'; sleep 1; echo ' '; exit 0; }
 
-    primo=true
+        primo=true
 
-    if [[ $valor -gt 1 ]]; then
-        for ((i=2; i<=$valor/2; i++)); do
-            if [[ $valor%$i -eq 0 ]]; then
-                primo=false
-                break
-            fi
-        done
-    else
-        primo=false
-    fi
+        if [[ $valor -gt 1 ]]; then
+            for ((i=2; i<=$valor/2; i++)); do
+                if [[ $valor%$i -eq 0 ]]; then
+                    primo=false
+                    break
+                fi
+            done
+        else
+            primo=false
+        fi
 
-    if [[ $primo == true ]]; then
-        echo " - O número $valor é primo."
-    else
-        echo " - O número $valor não é primo."
-    fi
+        if [[ $primo == true ]]; then
+            echo " - O número $valor é primo."
+        else
+            echo " - O número $valor não é primo."
+        fi
+    
     echo ' '
     echo '--------------------------------------'
-    
+    fi
+
     echo 'Pressione <ENTER> para continuar'
     read
 done
