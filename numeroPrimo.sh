@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
  
-
 while : 
 do
     clear
@@ -13,7 +12,7 @@ do
     echo ' '
 
     if [[ ! $valor =~ [0-9qQ] ]]; then
-        echo ' - Valore inválido.' 
+        echo ' - Valor inválido.' 
     else 
         [[ $valor =~ (q|Q) ]] && { echo ' Saindo...'; sleep 1; echo ' '; exit 0; }
 
@@ -43,8 +42,4 @@ do
     echo 'Pressione <ENTER> para continuar'
     read
 done
-
-
-
-
 
