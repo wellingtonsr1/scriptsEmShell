@@ -12,7 +12,7 @@ do
     read  valor
     echo ' '
 
-    [[ $valor =~ (q|Q) ]] && exit 1
+    [[ $valor =~ (q|Q) ]] && exit 0
 
     primo=true
 
