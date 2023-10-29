@@ -21,6 +21,9 @@ if [[ $# -eq 0 ]]; then
 fi
 
 # Percorrer a lista testando seus valores.
+echo '-----------'
+echo '   Saída   '
+echo '-----------'
 for i in $@; do       
     if [[ $((i % 3)) -eq 0 ]] && [[ $i%5 -eq 0 ]]; then
         echo "$i : fizbuz"       
@@ -29,7 +32,7 @@ for i in $@; do
     elif [[ $((i % 5)) -eq 0 ]]; then
         echo "$i : buz"
     else
-        echo $i
+        echo "$i : $i"
     fi
 done
 
