@@ -25,7 +25,7 @@ echo '-----------'
 echo '   Saída   '
 echo '-----------'
 for i in $@; do       
-    if [[ $((i % 3)) -eq 0 ]] && [[ $i%5 -eq 0 ]]; then
+    if [[ $((i % 3)) -eq 0 ]] && [[ $((i % 5)) -eq 0 ]]; then
         echo "$i : fizbuz"       
     elif [[ $((i % 3)) -eq 0 ]]; then
         echo "$i : fiz"    
