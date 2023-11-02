@@ -57,7 +57,7 @@ function display_prime {
 
 # Verificar se o número passado é primo
 function is_prime {
-    local prime=true; number=$1
+    local number=$1; prime=true 
     
     [[ "$number" -le 1 ]] && prime=false
     
@@ -68,7 +68,7 @@ function is_prime {
         fi
     done
     
-    display_prime $prime $list_of_numbers 
+    display_prime $prime $number 
 }
 
 
