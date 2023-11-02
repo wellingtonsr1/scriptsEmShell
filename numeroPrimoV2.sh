@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 #+--------------------------------Descrição---------------------------------------------
-#| - Dado um número, é verificado se esse número é primo.                                       
+#| - Dado um número (ou uma lista), é verificado se esse número é prime.                                       
 #+----------------------------------Autor-----------------------------------------------
 #| - Wellington        									         	                    
 #+------------------------------Data de criação-----------------------------------------
@@ -13,7 +13,38 @@
 #+--------------------------------------------------------------------------------------
 
 
- 
+author='Wellingon'
+version=2
+
+
+# Checar se foi informado algum valor
+if [[ -z $@ ]]; then  
+    echo "---------------------------------------------------------------------"
+    echo "                       Atenção!                                      "
+    echo "                                                                     "
+    echo " Uso: $0 <número1> <número2> <número3> ... <númeroN>                 "
+    echo "                          ou                                         "
+    echo "      $0 {<número-inicial..<número-final>}                           "
+    echo "---------------------------------------------------------------------"
+    exit 1
+fi
+
+
+# Exibir o cabeçalho
+function displayHead {
+    echo '-------------------------------------------------------'
+    echo " Exibir os números primes e não-primes entre $1 e $2   "
+    echo '-------------------------------------------------------'
+}
+
+
+# Exibir o rodapé
+function displayFoot {
+    echo '-------------------------------------------------------'
+    echo " Desenvolvido por: $author             Versão: $version"
+    echo '-------------------------------------------------------'
+}
+
 
 # Exibir na tela se o número é primo ou não
 function displayPrime {
@@ -37,18 +68,22 @@ function isPrime {
         fi
     done
     
-    displayPrime $prime $number
+    displayPrime $prime $number 
 }
 
 
 # Função principal
 function main {
     local numberList=$@
-    
+
+    displayHead ${@:1:1} ${!#}
+ 
     # Chamar a função de teste passando um número por vez
     for i in $numberList; do
         isPrime $i
-    done 
+    done
+    
+    displayFoot
 }
 
 
