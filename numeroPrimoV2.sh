@@ -16,37 +16,44 @@
  
 
 # Exibir na tela se o número é primo ou não
-function msgPrimo {
-    [[ $1 == true ]] && resultado='é primo' || resultado='não é primo'
+function displayPrime() {
+    [[ $1 == true ]] && result='é primo' || result='não é primo'
     
-    echo " - O número $2 $resultado"
+    echo " - O número $2 $result"
     #sleep 1
 } 
 
 
 # Verificar se o número passado é primo
-function ePrimo {
-    primo=true
-    numero=$1
+function isPrime {
+    local prime=true; number=$1
     
-    [[ "$numero" -le 1 ]] && primo=false
+    [[ "$number" -le 1 ]] && prime=false
     
-    for ((i=2; i<=($numero/2); i++)); do
-        if [[ $((numero%i)) -eq 0 ]]; then
-            primo=false
+    for ((i=2; i<=($number/2); i++)); do
+        if [[ $((number%i)) -eq 0 ]]; then
+            prime=false
             break
         fi
     done
     
-    msgPrimo $primo $numero
+    displayPrime $prime $number
 }
 
 
-# Chamar a função de teste passando um número por vez
-for i in $@; do
-    ePrimo $i
-done 
+# Função principal
+function main {
+    local numberList=$@
+    
+    # Chamar a função de teste passando um número por vez
+    for i in $numberList; do
+        isPrime $i
+    done 
+}
 
+
+# Chamar a função principal
+main $@
 
 
 
