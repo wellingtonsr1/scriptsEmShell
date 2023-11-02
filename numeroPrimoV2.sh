@@ -16,7 +16,7 @@
  
 
 # Exibir na tela se o número é primo ou não
-function displayPrime() {
+function displayPrime {
     [[ $1 == true ]] && result='é primo' || result='não é primo'
     
     echo " - O número $2 $result"
