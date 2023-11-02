@@ -13,8 +13,8 @@
 #+--------------------------------------------------------------------------------------
 
 
-author='Wellingon'
-version=2
+AUTHOR='Wellingon'
+VERSION=2
 
 
 # Checar se foi informado algum valor
@@ -24,14 +24,14 @@ if [[ -z $@ ]]; then
     echo "                                                                     "
     echo " Uso: $0 <número1> <número2> <número3> ... <númeroN>                 "
     echo "                          ou                                         "
-    echo "      $0 {<número-inicial..<número-final>}                           "
+    echo "      $0 {<número-inicial>..<número-final>}                          "
     echo "---------------------------------------------------------------------"
     exit 1
 fi
 
 
 # Exibir o cabeçalho
-function displayHead {
+function display_head {
     echo '-------------------------------------------------------'
     echo " Exibir os números primos e não-primos entre $1 e $2   "
     echo '-------------------------------------------------------'
@@ -39,15 +39,15 @@ function displayHead {
 
 
 # Exibir o rodapé
-function displayFoot {
+function display_foot {
     echo '-------------------------------------------------------'
-    echo " Desenvolvido por: $author             Versão: $version"
+    echo " Desenvolvido por: $AUTHOR             Versão: $VERSION"
     echo '-------------------------------------------------------'
 }
 
 
 # Exibir na tela se o número é primo ou não
-function displayPrime {
+function display_prime {
     [[ $1 == true ]] && result='é primo' || result='não é primo'
     
     echo " - O número $2 $result"
@@ -56,7 +56,7 @@ function displayPrime {
 
 
 # Verificar se o número passado é primo
-function isPrime {
+function is_prime {
     local prime=true; number=$1
     
     [[ "$number" -le 1 ]] && prime=false
@@ -68,23 +68,23 @@ function isPrime {
         fi
     done
     
-    displayPrime $prime $number 
+    display_prime $prime $list_of_numbers 
 }
 
 
 # Função principal
 function main {
-    local numberList="$@"
+    local list_of_numbers="$@"
     
     # Pode ser usado o ${!#} para pegar o último valor
-    displayHead ${@:1:1} ${@:(-1):1}
+    display_head ${@:1:1} ${@:(-1):1}
  
     # Chamar a função de teste passando um número por vez
-    for i in $numberList; do
-        isPrime $i
+    for item in $list_of_numbers; do
+        is_prime $item
     done
     
-    displayFoot
+    display_foot
 }
 
 
