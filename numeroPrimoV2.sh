@@ -33,7 +33,7 @@ fi
 # Exibir o cabeçalho
 function displayHead {
     echo '-------------------------------------------------------'
-    echo " Exibir os números primes e não-primes entre $1 e $2   "
+    echo " Exibir os números primos e não-primos entre $1 e $2   "
     echo '-------------------------------------------------------'
 }
 
@@ -74,9 +74,10 @@ function isPrime {
 
 # Função principal
 function main {
-    local numberList=$@
-
-    displayHead ${@:1:1} ${!#}
+    local numberList="$@"
+    
+    # Pode ser usado o ${!#} para pegar o último valor
+    displayHead ${@:1:1} ${@:(-1):1}
  
     # Chamar a função de teste passando um número por vez
     for i in $numberList; do
