@@ -1,2 +1,3 @@
 Calculadora de bases numérias
+Fazer um jogo de adivinhação de número
 
