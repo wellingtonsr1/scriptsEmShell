@@ -13,8 +13,8 @@
 
 password=()
 characters=()
-declare -i passwordSize=0
-declare -i minimumSize=8
+declare -i password_length=0
+declare -i minimum_length=8
 
 
 until [[ "${#characters[@]}" -ne 0 ]]; do
@@ -28,26 +28,26 @@ until [[ "${#characters[@]}" -ne 0 ]]; do
     echo ' ** Deve ser escolhido ao menos um tipo. **'
     echo ' '
 
-    read -p '=> Números (s\N)? ' yesOrNo
-    [[ "$yesOrNo" =~ ("s"|"S") ]] && characters+=(0 1 2 3 4 5 6 7 8 9) 
+    read -p '=> Números (s\N)? ' yes_or_no
+    [[ "$yes_or_no" =~ ("s"|"S") ]] && characters+=(0 1 2 3 4 5 6 7 8 9) 
 
-    read -p '=> Letras maiúscula (s\N)? ' yesOrNo
-    [[ "$yesOrNo" =~ ("s"|"S") ]] && characters+=(A B C D E F G H I J K L M N O P Q R S T U V W X Y Z)
+    read -p '=> Letras maiúscula (s\N)? ' yes_or_no
+    [[ "$yes_or_no" =~ ("s"|"S") ]] && characters+=(A B C D E F G H I J K L M N O P Q R S T U V W X Y Z)
 
-    read -p '=> Letras minúsculas (s\N)? ' yesOrNo
-    [[ "$yesOrNo" =~ ("s"|"S") ]] && characters+=(a b c d e f g h i j k l m n o p q r s t u v w x y z)
+    read -p '=> Letras minúsculas (s\N)? ' yes_or_no
+    [[ "$yes_or_no" =~ ("s"|"S") ]] && characters+=(a b c d e f g h i j k l m n o p q r s t u v w x y z)
 
-    read -p '=> Caracteres especiais (s\N)? ' yesOrNo
-    [[ "$yesOrNo" =~ ("s"|"S") ]] && characters+=('!' '@' '#' '$' '%' '&' '*' '?')
+    read -p '=> Caracteres especiais (s\N)? ' yes_or_no
+    [[ "$yes_or_no" =~ ("s"|"S") ]] && characters+=('!' '@' '#' '$' '%' '&' '*' '?')
     echo ' '
 done
 
-until [[ "$passwordSize" -ge "$minimumSize" ]]; do
-    read -p "Qual será o tamanho da senha (Mínimo é $minimumSize)? " passwordSize
+until [[ "$password_length" -ge "$minimum_size" ]]; do
+    read -p "Qual será o tamanho da senha (Mínimo é $minimum_length)? " password_length
 done
 echo " "
 
-for ((i=0; i < "$passwordSize"; i++)); do
+for ((i=0; i < "$password_length"; i++)); do
     indice=$(($RANDOM%${#characters[@]}))
     password["$i"]="${characters["$indice"]}"
 done    
