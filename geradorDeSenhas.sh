@@ -16,6 +16,10 @@ characters=()
 declare -i password_length=0
 declare -i minimum_length=8
 
+read -p "Qual será o tamanho da senha (Tecle Enter para $minimum_length)? " password_length
+if [[ $password_length -lt $minimum_length ]]; then 
+    password_length=$minimum_length
+fi
 
 until [[ "${#characters[@]}" -ne 0 ]]; do
     clear
@@ -41,11 +45,6 @@ until [[ "${#characters[@]}" -ne 0 ]]; do
     [[ "$yes_or_no" =~ ("s"|"S") ]] && characters+=('!' '@' '#' '$' '%' '&' '*' '?')
     echo ' '
 done
-
-until [[ "$password_length" -ge "$minimum_size" ]]; do
-    read -p "Qual será o tamanho da senha (Mínimo é $minimum_length)? " password_length
-done
-echo " "
 
 for ((i=0; i < "$password_length"; i++)); do
     indice=$(($RANDOM%${#characters[@]}))
