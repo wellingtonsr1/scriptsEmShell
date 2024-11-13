@@ -22,12 +22,12 @@ echo '*            Gerador de senhas                    *'
 echo '-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-'
 echo ' '
     
-read -p "Qual será o tamanho da senha (Tecle Enter para $minimum_length)? " password_length
+read -p " Qual será o tamanho da senha (Tecle Enter para $minimum_length)? " password_length
 [[ $password_length -lt $minimum_length ]] && password_length=$minimum_length
 
 until [[ "${#characters[@]}" -ne 0 ]]; do
     echo ' '
-    echo 'Escolha os caracteres que farão parte da senha'
+    echo ' Escolha os caracteres que farão parte da senha'
     echo ' ** Deve ser escolhido ao menos um tipo. **'
     echo ' '
 
