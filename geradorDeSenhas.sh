@@ -17,9 +17,8 @@ declare -i password_length=0
 declare -i minimum_length=8
 
 read -p "Qual será o tamanho da senha (Tecle Enter para $minimum_length)? " password_length
-if [[ $password_length -lt $minimum_length ]]; then 
-    password_length=$minimum_length
-fi
+[[ $password_length -lt $minimum_length ]] && password_length=$minimum_length
+
 
 until [[ "${#characters[@]}" -ne 0 ]]; do
     clear
