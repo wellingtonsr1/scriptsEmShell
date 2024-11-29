@@ -41,6 +41,8 @@ Finalidade:
 
 	Ideal para quem deseja gerenciar senhas de maneira simples e segura, sem depender de ferramentas de terceiros ou interfaces complexas. Ele é útil em ambientes de linha de comando e prioriza a privacidade e a segurança dos dados.
 #
+
+
 # Função para exibir erros e sair
 error_exit() {
     echo "Erro: $1" >&2
