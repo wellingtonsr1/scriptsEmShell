@@ -77,7 +77,7 @@ fi
 if [ -f "$GPGFILE" ]; then
     BACKUP_FILE="${BACKUP_DIR}/${GPGFILE}.BKP.$(date +%Y%m%d%H%M%S).zip"
     zip -q -r "$BACKUP_FILE" "$GPGFILE" || error_exit "Falha ao criar o backup."
-    echo "Backup criado em: $BACKUP_FILE"
+    #echo "Backup criado em: $BACKUP_FILE"
 else
     echo "Arquivo de senha original não encontrado. Será criado um novo."
 fi
@@ -85,7 +85,7 @@ fi
 # Descriptografar o arquivo .gpg, se existir
 if [ -f "$GPGFILE" ]; then
     gpg --quiet --decrypt "$GPGFILE" > "$TXTFILE" 2>/dev/null || error_exit "Falha ao descriptografar $GPGFILE."
-    echo "Arquivo descriptografado com sucesso."
+    #echo "Arquivo descriptografado com sucesso."
 else
     echo "Criando novo arquivo de senhas."
     touch "$TXTFILE" || error_exit "Não foi possível criar $TXTFILE."
