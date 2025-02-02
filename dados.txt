@@ -1,5 +1,2 @@
-facebook|wellington|123456
-facebook|emanuel|99889909
-gmail|wellington-gmail|12345678
-IPM|wellingtonrodrigues|123
-
+facebook;wellington;123456
+kabum;josias;senha4567
